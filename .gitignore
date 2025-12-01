@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+node_modules/electron/dist/
+
+# Build outputs
+dist/
+dist-electron/
+release/
+*.dmg
+*.zip
+*.app
+
+# OS/editor files
+.DS_Store
+.vscode/
