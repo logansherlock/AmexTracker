@@ -20,7 +20,7 @@ The most recent version of Amex Tracker can be installed from the releases secti
 - For _Apple Silicon_: download `AmexTracker.dmg`
 - For _Windows x86_: download `AmexTracker.exe`
 
-#### Disclaimer
+<h6>Disclaimer</h4>
 
 > <small> Amex Tracker is an independent project and is **not affiliated with or endorsed by American Express**. All trademarks and logos are property of their respective owners. Use at your own discretion. </small>
 
