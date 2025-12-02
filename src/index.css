@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* div {
   border: 1px solid black;
 } */
@@ -37,6 +38,12 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* index.css */
+}
+
+/* Apply font globally */
+* {
+  font-family: "Gantari", sans-serif;
 }
 
 h1 {
@@ -57,10 +64,6 @@ button {
 button:hover {
   border-color: #000000;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -73,4 +76,16 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Chrome, Safari, Edge, Opera */
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.no-spinner[type="number"] {
+  -moz-appearance: textfield;
 }

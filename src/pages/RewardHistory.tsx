@@ -1,7 +1,7 @@
 import "../index.css";
 import "../output.css";
 import Header from "../components/header";
-import Rewards from "../components/rewards";
+import Rewards from "../components/pastRewards";
 
 export default function RewardHistory() {
   return (

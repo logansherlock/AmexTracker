@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "American Express rewards tracking application.",
+  "author": "Logan Sherlock",
   "build": {
     "appId": "LoganSherlock.AmexTracker",
     "productName": "AmexTracker",
@@ -11,28 +13,46 @@
       "dist/**/*"
     ],
     "directories": {
-      "output": "release/${version}"
+      "output": "release"
     },
     "mac": {
-      "icon": "assets/icon.icns"
+      "icon": "assets/icon.icns",
+      "target": ["dmg", "zip"],
+      "artifactName": "${productName}.${ext}"
+    },
+    "dmg": {
+      "iconSize": "100",
+      "iconTextSize": "12",
+      "backgroundColor": "white",
+      "contents": [
+        { "x": 150, "y": 100, "type": "file" },
+        { "x": 350, "y": 100, "type": "link", "path": "/Applications" }
+      ],
+      "window": { "width": 500, "height": 300 }
     },
     "win": {
-      "icon": "assets/icon.ico"
+      "icon": "assets/icon.ico",
+      "target": ["nsis"],
+      "artifactName": "${productName}.${ext}"
     },
     "linux": {
-      "icon": "assets/icon.png"
+      "icon": "assets/icon.png",
+      "target": ["AppImage", "deb"],
+      "artifactName": "${productName}.${ext}"
     }
   },
   "scripts": {
     "dev": "vite",
     "build:css": "tailwindcss -i src/index.css -o src/output.css --minify",
-    "build": "npm run build:css && tsc && vite build && electron-builder",
+    "build": "npm run build:css && tsc && vite build && electron-builder --macos",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "electron": "electron .",
-    "package": "electron-packager . AmexTracker --platform=darwin,win32 --arch=x64,arm64 --overwrite"
+    "package": "electron-packager . AmexTracker --platform=darwin,win32 --arch=x64,arm64 --overwrite",
+    "windows": "npx electron-builder --win --x64"
   },
   "dependencies": {
+    "@fontsource-variable/gantari": "^5.2.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.9.6"

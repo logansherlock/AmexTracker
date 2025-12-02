@@ -1,4 +1,4 @@
-import Form from "../components/form";
+import Form from "../components/cardForm";
 import "../index.css";
 import "../output.css";
 import Header from "../components/header";

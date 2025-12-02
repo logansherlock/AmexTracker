@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import GoldCard from "../assets/gold_card.png"
-import PlatinumCard from "../assets/platinum_card.png"
-import GoldCardSample from "../assets/gold_card_sample.png"
-import PlatinumCardSample from "../assets/platinum_card_sample.png"
+import GoldCard from "../assets/gold_card.png";
+import PlatinumCard from "../assets/platinum_card.png";
+import GoldCardSample from "../assets/gold_card_sample.png";
+import PlatinumCardSample from "../assets/platinum_card_sample.png";
 
 const rewardTypesByCard: any = {
   platinum: [
@@ -149,14 +149,27 @@ export default function Form() {
             <div className="flex flex-row items-center justify-center font-semibold tracking-tighter text-white gap-x-2">
               <label className="text-sm">Last 4:</label>
               <input
-                type="text"
+                type="number"
                 id="lastFour"
                 name="lastFour"
                 placeholder="xxxx"
-                className="bg-stone-100 text-blue-900 rounded-sm text-black px-1 w-16 text-center"
+                max={9999}
+                className="bg-stone-100 text-blue-900 rounded-sm text-black px-1 w-16 text-center no-spinner"
                 required
                 value={lastFour}
-                onChange={(e) => setLastFour(e.target.value)}
+                onChange={(e) => {
+                  // Keep only digits
+                  let value = e.target.value.replace(/\D/g, "");
+                  // Limit to max 4 digits
+                  if (value.length > 4) value = value.slice(0, 4);
+                  setLastFour(value);
+                }}
+                onBlur={() => {
+                  // Pad with leading zeros to always have 4 digits
+                  if (lastFour.length > 0) {
+                    setLastFour(lastFour.padStart(4, "0"));
+                  }
+                }}
               />
             </div>
             <div className="flex flex-row justify-center">

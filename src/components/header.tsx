@@ -36,7 +36,7 @@ export default function Header() {
         onClick={handleReturnHome}
         className="absolute left-1/2 transform -translate-x-1/2 text-white font-bold text-2xl cursor-pointer"
       >
-        American Express Tracker
+        AMEX TRACKER
       </div>
       <div className="ml-auto relative">
         <button

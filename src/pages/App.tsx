@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // <-- import useNavigate
 import Header from "../components/header";
 import Countdown from "../components/countdown";
-import ProgressBar from "../components/progress_bar";
+import ProgressBar from "../components/progressBar";
 import GoldCard from "../assets/gold_card.png"
 import PlatinumCard from "../assets/platinum_card.png"
 

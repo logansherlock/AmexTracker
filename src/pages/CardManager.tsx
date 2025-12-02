@@ -1,4 +1,4 @@
-import Management from "../components/management";
+import Management from "../components/cardList";
 import "../index.css";
 import "../output.css";
 import Header from "../components/header";
