@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* div {
   border: 1px solid black;
 } */
@@ -88,4 +87,14 @@ button:hover {
 /* Firefox */
 .no-spinner[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* src/index.css or global CSS */
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

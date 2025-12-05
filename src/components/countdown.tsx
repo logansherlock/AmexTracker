@@ -200,8 +200,7 @@ export default function Countdown({ setProgress }: CountdownProps) {
   }
 
   return (
-    <div className="flex flex-col bg-white items-center justify-center flex-1 p-3 overflow-auto">
-      <div className=""></div>
+    <div className="flex flex-col bg-white rounded-br-lg items-center justify-center flex-1 p-3 overflow-auto">
       <div className="grid grid-cols-2 gap-x-5 gap-y-2" id="rewardUser">
         {rewardNames.map((name) => {
           const rewardData = card.rewards[name];

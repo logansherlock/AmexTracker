@@ -20,6 +20,81 @@ The most recent version of Amex Tracker can be installed from the releases secti
 - For _Apple Silicon_: download `AmexTracker.dmg`
 - For _Windows x86_: download `AmexTracker.exe`
 
+### Card Dashboard
+
+The main dashboard of Amex Tracker displays key information about the currently selected card. A progress bar shows how much of the annual fee has been offset through rewards which updates in real time. Along with a section where users can mark rewards as used as well as view available ones.
+
+<div style="display: flex; flex-direction: column; align-items: center;justify-content: center;">
+    <img style="width: 60%; border-radius: 2%; border: black solid 1px; margin-bottom: 10px;" src="readme_images/main_page.png" alt="page navigation image">
+    <div style="width: 60%;">
+        <ul>
+            <li>Reward logos in color are available for use.</li>
+            <li>Greyed out reward logos are currently unavailable.</li>
+            <li>Access the reward history page using the history button.</li>
+        </ul>
+    </div>
+</div>
+
+### Page Navigation
+
+Navigation for Amex Tracker is very simple. Links to all pages can be found when pressing the 'Menu' button in the header from anywhere in the application.
+
+<div style="display: flex; flex-direction: column; align-items: center;justify-content: center;">
+    <img style="width: 60%; border-radius: 2%; border: black solid 1px; margin-bottom: 10px;" src="readme_images/page_navigation.png" alt="page navigation image">
+    <div style="width: 60%;">
+        <ul>
+            <li><span style="font-weight: bold;">Add Card:</span> Link to new card form, users can add new card information.</li>
+            <li><span style="font-weight: bold;">Manage Cards:</span> Card management page, where users can view saved cards.</li>
+            <li><span style="font-weight: bold;">Past Rewards:</span> Allows users to make changes to past reward usage.</li>
+        </ul>
+    </div>
+</div>
+
+### Adding a Card
+
+Form where users can add multiple cards to Amex Tracker, allowing them to keep reward accounts for different American Express cards separate and track rewards specific to each card.
+
+<div style="display: flex; flex-direction: column; align-items: center;justify-content: center;">
+    <img style="width: 60%; border-radius: 2%; border: black solid 1px; margin-bottom: 10px;" src="readme_images/add_card.png" alt="page navigation image">
+    <div><span style="font-weight: bold; font-size: large">Card Attributes</div>
+    <div style="width: 60%;">
+        <ul>
+            <li><span style="font-weight: bold;">Card Type:</span> Gold or Platinum</li>
+            <li><span style="font-weight: bold;">Renewal Month:</span> Month annual fee is paid</li>
+            <li><span style="font-weight: bold;">Last 4:</span> Last 4 digits of card number (for identification)</li>
+        </ul>
+    </div>
+</div>
+
+### Card Management
+
+Allows users to change the currently selected card at any time and remove outdated reward records.
+
+<div style="display: flex; flex-direction: column; align-items: center;justify-content: center;">
+    <img style="width: 60%; border-radius: 2%; border: black solid 1px; margin-bottom: 10px;" src="readme_images/card_manager.png" alt="page navigation image">
+    <div style="width: 60%;">
+        <ul>
+            <li><span style="font-weight: bold;">Green Arrow:</span> Sets the card as the currently selected card.</li>
+            <li><span style="font-weight: bold;">Red Trash Can:</span> Deletes the card and all associated reward history (this action cannot be undone).</li>
+        </ul>
+    </div>
+</div>
+
+### Reward History
+
+Provides users with the ability to go back in time and adjust reward usage history. It also displays the cumulative lifetime savings amount. History allows users to go back to 2020.
+
+<div style="display: flex; flex-direction: column; align-items: center;justify-content: center;">
+    <img style="width: 60%; border-radius: 2%; border: black solid 1px; margin-bottom: 10px;" src="readme_images/reward_history.png" alt="page navigation image">
+    <div style="width: 60%;">
+        <ul>
+            <li><span style="font-weight: bold;">Colored Logos:</span> Rewards that are available for use in the currently selected month.</li>
+            <li><span style="font-weight: bold;">Green Shading:</span> Indicates rewards that have been used in the currently selected month.</li>
+            <li><span style="font-weight: bold;">Red Shading:</span> Indicates rewards that are unavailable in the selected month, typically because they were already redeemed within their reset period.</li>
+        </ul>
+    </div>
+</div>
+
 <h6>Disclaimer</h4>
 
 > <small> Amex Tracker is an independent project and is **not affiliated with or endorsed by American Express**. All trademarks and logos are property of their respective owners. Use at your own discretion. </small>

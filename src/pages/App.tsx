@@ -66,7 +66,7 @@ export default function App() {
               target={progress.target}
             />
           </div>
-          <div className="flex flex-col flex-1 h-full w-[30%] rounded-br-lg bg-white">
+          <div className="flex flex-col flex-1 h-full w-[30%] rounded-br-lg bg-stone-500">
             <Countdown setProgress={setProgress} />
           </div>
         </div>

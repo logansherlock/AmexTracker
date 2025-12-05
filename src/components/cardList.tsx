@@ -67,15 +67,13 @@ export default function Management() {
   }
 
   return (
-    <div className="p-1 bg-stone-200 w-full h-full">
-      <div className="flex flex-col bg-white m-0 p-0 w-full h-full gap-2 px-4 py-4 rounded-b-lg">
-        <div className="grid grid-cols-3 gap-y-3 gap-x-5 justify-center">
+    <div className="p-1 bg-stone-200 w-full h-full overflow-hidden">
+      <div className="flex flex-col bg-white m-0 w-full h-full gap-2 px-12 py-6 rounded-b-lg overflow-y-auto scrollbar-hidden">
+        {" "}
+        <div className="grid grid-cols-2 gap-y-4 gap-x-8 justify-center">
           {cards.map((card, index) => (
-            <div className="p-1 rounded-lg border border-black flex flex-row gap-x-1 bg-stone-400">
-              <div
-                key={index}
-                className="border border-black rounded-md items-center gap-2"
-              >
+            <div className="p-[6px] rounded-xl bg-blue-800 flex flex-row gap-x-1">
+              <div key={index} className=" items-center gap-2">
                 {/* <button
               className={`rounded-full bg-stone-300 text-blue-900 py-2 font-bold transition w-full ${
                 currentCard === index ? "bg-red-400" : ""
@@ -91,26 +89,26 @@ export default function Management() {
                       ? PlatinumCard
                       : ""
                   }
-                  className=" rounded-md"
+                  className="border border-black rounded-xl"
                 ></img>
               </div>
-              <div className="flex flex-col justify-between ">
-                <div className="flex flex-row gap-x-1">
+              <div className="flex flex-col items-center justify-between ">
+                <div className="flex flex-col gap-y-2">
                   <button
                     onClick={() => handleSelect(index)}
-                    className="flex text-black bg-green-400 border border-black w-5 h-5 text-sm items-center justify-center font-bold p-1 rounded-md hover:scale-105 duration-150 transition"
+                    className="flex text-black bg-green-400/75 border border-black w-7 h-7 text-lg items-center justify-center font-bold p-1 rounded-lg hover:scale-105 duration-150 transition"
                   >
                     →
                   </button>
 
                   <button
                     onClick={() => handleRemove(index)}
-                    className="flex items-center justify-center p-1 border border-black w-5 h-5 bg-red-500 hover:scale-105 duration-150 text-blue-900 font-bold rounded-md transition"
+                    className="flex items-center justify-center p-1 border border-black w-7 h-7 bg-red-500/75 hover:scale-105 duration-150 text-blue-900 font-bold rounded-lg transition"
                   >
                     <img src={Delete} className="w-3"></img>
                   </button>
                 </div>
-                <div className="flex items-center justify-end font-bold text-sm">
+                <div className="flex items-center justify-end text-white font-bold text-xs">
                   {`x${card.lastFour || "••••"}`}
                 </div>
               </div>

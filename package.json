@@ -1,7 +1,7 @@
 {
   "name": "amex_tracker",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1",
   "type": "module",
   "description": "American Express rewards tracking application.",
   "author": "Logan Sherlock",
