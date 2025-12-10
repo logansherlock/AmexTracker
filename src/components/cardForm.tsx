@@ -67,26 +67,32 @@ export default function Form() {
   return (
     <div className="p-1 w-full h-full bg-stone-200 ">
       <div className="flex flex-row items-center justify-center bg-white w-full h-full gap-x-12 rounded-b-lg">
-        <div className="flex justify-center items-center w-[55%] h-[58%] shadow-black shadow-2xl rounded-2xl">
-          {cardType === "gold" ? (
-            <img
-              src={GoldCard}
-              alt={`${cardType} card`}
-              className="w-full h-full border border-black rounded-2xl object-contain"
-            />
-          ) : cardType === "platinum" ? (
-            <img
-              src={PlatinumCard}
-              alt={`${cardType} card`}
-              className="w-full h-full border border-black rounded-2xl object-contain"
-            />
+        <div className="flex items-center justify-center text-blackborder border-black h-full w-[55%] h-full w-[55%]">
+          {cardType === "gold" || cardType === "platinum" ? (
+            <div className="flex justify-center items-center w-full shadow-black shadow-2xl rounded-2xl">
+              {cardType === "gold" ? (
+                <img
+                  src={GoldCard}
+                  alt={`${cardType} card`}
+                  className="w-full h-full border border-black rounded-2xl object-contain"
+                />
+              ) : cardType === "platinum" ? (
+                <img
+                  src={PlatinumCard}
+                  alt={`${cardType} card`}
+                  className="w-full h-full border border-black rounded-2xl object-contain"
+                />
+              ) : (
+                ""
+              )}
+            </div>
           ) : (
-            <div className="flex items-center justify-center text-blue-900 w-full h-full text-2xl rounded-2xl border border-black font-semibold">
+            <div className="flex items-center justify-center text-blue-900 w-full h-full text-2xl rounded-2xl  font-semibold">
               Enter card information!
             </div>
           )}
-        </div>{" "}
-        <div className="flex bg-blue-800 text-white rounded-md flex-col py-3 px-3">
+        </div>
+        <div className="flex bg-blue-800 text-white border border-black rounded-md flex-col py-3 px-3">
           {/* <div className="font-bold text-center mt-1 mb-2">Add Card Info</div> */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-y-3">
             <div className="flex flex-row justify-between">

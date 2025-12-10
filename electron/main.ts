@@ -27,9 +27,16 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 let win: BrowserWindow | null;
 
 function createWindow() {
+  // Platform-specific size
+  const isMac = process.platform === "darwin";
+  const isWindows = process.platform === "win32";
+
+  const width = isMac ? 700 : isWindows ? 700 : 1000;       // example sizes
+  const height = isMac ? 500 : isWindows ? 600 : 1000;
+
   win = new BrowserWindow({
-    width: 700, // fixed width
-    height: 500, // fixed height
+    width: width,
+    height: height, // fixed height
     resizable: false, // prevent resizing
     maximizable: false, // prevent maximize
     icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
