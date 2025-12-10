@@ -26,7 +26,7 @@ The most recent version of Amex Tracker can be installed from the releases secti
 
 Download the latest versions from the **Releases** page of this repository.
 
-> **Note:** AmexTracker builds are *not* signed or notarized. Extra steps may be required to run uncertified apps on your device. Install at your own risk.
+> **Note:** AmexTracker builds are _not_ signed or notarized. Extra steps may be required to run uncertified apps on your device. Install at your own risk.
 
 ### Windows
 
@@ -37,7 +37,7 @@ Download the latest versions from the **Releases** page of this repository.
    (This is normal for unsigned apps.)
 4. Complete the installation.
 
-### MacOS
+### macOS
 
 1. Download the `.dmg` from Releases and open it.
 2. Drag **AmexTracker.app** into your **Applications** folder.
@@ -64,14 +64,55 @@ sudo xattr -r -d com.apple.quarantine /Applications/AmexTracker.app
 
 **What this command does (for user confidence):**
 
-- `sudo` — runs the command with permission to modify system-protected folders like `/Applications`.  
-- `xattr` — a macOS tool that manages extended attributes (extra metadata on files).  
-- `-r` — applies the change to the app and all files inside it.  
-- `-d com.apple.quarantine` — deletes macOS’s “quarantine” flag, which is added to downloaded apps so Gatekeeper can warn you.  
+- `sudo` — runs the command with permission to modify system-protected folders like `/Applications`.
+- `xattr` — a macOS tool that manages extended attributes (extra metadata on files).
+- `-r` — applies the change to the app and all files inside it.
+- `-d com.apple.quarantine` — deletes macOS’s “quarantine” flag, which is added to downloaded apps so Gatekeeper can warn you.
 - `/Applications/AmexTracker.app` — the app that the quarantine flag is being removed from.
 
 **This does NOT disable Gatekeeper system-wide.**  
 It only removes the quarantine flag from _this one app_, allowing it to open normally.
+
+---
+
+## Build from Source
+
+If you want to build Amex Tracker yourself, follow these steps:
+
+1. Open **Terminal**
+2. Clone the repository
+
+```bash
+git clone https://github.com/logansherlock/AmexTracker.git
+cd AmexTracker
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Build the app
+
+**macOS:**
+
+```bash
+npm run mac
+```
+
+**Windows (x86):**
+
+```bash
+npm run windows
+```
+
+5. The built distributions will now be located in the `AmexTracker/application` folder:
+
+- `AmexTracker.dmg` for macOS
+- `AmexTracker.exe` for Windows
+
+> <small> Make sure Node.js (v18 or later) and npm are installed before running these commands. </small>
 
 ---
 

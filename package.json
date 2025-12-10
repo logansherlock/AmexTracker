@@ -13,7 +13,7 @@
       "dist/**/*"
     ],
     "directories": {
-      "output": "release"
+      "output": "application"
     },
     "mac": {
       "icon": "assets/icon.icns",
@@ -49,7 +49,8 @@
     "preview": "vite preview",
     "electron": "electron .",
     "package": "electron-packager . AmexTracker --platform=darwin,win32 --arch=x64,arm64 --overwrite",
-    "windows": "npx electron-builder --win --x64"
+    "mac": "npm run build:css && tsc && vite build && electron-builder --macos",
+    "windows": "npm run build:css && tsc && vite build && electron-builder --win --x64"
   },
   "dependencies": {
     "@fontsource-variable/gantari": "^5.2.8",
