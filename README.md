@@ -6,6 +6,8 @@
 
 Amex Tracker is a lightweight desktop application designed to help American Express Gold and Platinum cardholders efficiently track their primary reward usage. By tracking the savings accumulated through AMEX partner rewards, users can ensure they make the most of the pricey annual memberships. The app provides a simple and intuitive interface, making it easy to monitor spending, rewards, and overall card value at a glance.
 
+---
+
 ## Features
 
 - Track AMEX partner reward usage and their availability
@@ -13,12 +15,65 @@ Amex Tracker is a lightweight desktop application designed to help American Expr
 - View accumulated savings from rewards (both since renewal and lifetime)
 - Simple, intuitive interface
 
+---
+
 ## Installation
 
 The most recent version of Amex Tracker can be installed from the releases section of the GitHub repository. Amex Tracker was developed on and optimized for Apple Silicon, but supports Windows x86 machines as well.
 
 - For _Apple Silicon_: download `AmexTracker.dmg`
 - For _Windows x86_: download `AmexTracker.exe`
+
+Download the latest versions from the **Releases** page of this repository.
+
+> **Note:** AmexTracker builds are *not* signed or notarized. Extra steps may be required to run uncertified apps on your device. Install at your own risk.
+
+### Windows
+
+1. Download the `AmexTracker-Setup.exe` from Releases.
+2. Run the installer.
+3. If Windows shows **Windows protected your PC**, click:
+   **More Info → Run anyway**
+   (This is normal for unsigned apps.)
+4. Complete the installation.
+
+### MacOS
+
+1. Download the `.dmg` from Releases and open it.
+2. Drag **AmexTracker.app** into your **Applications** folder.
+3. Try opening the app — macOS may show:
+   **“AmexTracker cannot be opened because the developer cannot be verified.”**
+
+#### Option 1: Allow Through System Settings
+
+1. Open **System Settings → Privacy & Security**.
+2. Scroll down to find **“AmexTracker was blocked from opening.”**
+3. Click **Allow Anyway**.
+4. Open the app again and select **Open**.
+
+After this, the app will open normally every time.
+
+#### Option 2: Use the Terminal
+
+1. Make sure **AmexTracker.app** is in /Applications
+2. Open **Terminal** and run:
+
+```bash
+sudo xattr -r -d com.apple.quarantine /Applications/AmexTracker.app
+```
+
+**What this command does (for user confidence):**
+
+- `sudo` — runs the command with permission to modify system-protected folders like `/Applications`.  
+- `xattr` — a macOS tool that manages extended attributes (extra metadata on files).  
+- `-r` — applies the change to the app and all files inside it.  
+- `-d com.apple.quarantine` — deletes macOS’s “quarantine” flag, which is added to downloaded apps so Gatekeeper can warn you.  
+- `/Applications/AmexTracker.app` — the app that the quarantine flag is being removed from.
+
+**This does NOT disable Gatekeeper system-wide.**  
+It only removes the quarantine flag from _this one app_, allowing it to open normally.
+
+---
 
 ### Card Dashboard
 
@@ -95,7 +150,9 @@ Provides users with the ability to go back in time and adjust reward usage histo
     </div>
 </div>
 
-<h6>Disclaimer</h4>
+---
+
+<h6>Disclaimer</h6>
 
 > <small> Amex Tracker is an independent project and is **not affiliated with or endorsed by American Express**. All trademarks and logos are property of their respective owners. Use at your own discretion. </small>
 
