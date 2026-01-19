@@ -1,3 +1,4 @@
+// Form for adding a new Amex card and initializing its rewards
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import GoldCard from "../assets/gold_card.png";
@@ -5,6 +6,12 @@ import PlatinumCard from "../assets/platinum_card.png";
 import GoldCardSample from "../assets/gold_card_sample.png";
 import PlatinumCardSample from "../assets/platinum_card_sample.png";
 
+/*
+  All available rewards by card type
+    - name: company/business name
+    - type: reward use reset period
+    - credit: maximum value of reward
+*/
 const rewardTypesByCard: any = {
   platinum: [
     { name: "airline", type: "annually", credit: 200 },
@@ -28,18 +35,35 @@ const rewardTypesByCard: any = {
 };
 
 export default function Form() {
+  // Selected card type ('Gold' or 'Platinum')
   const [cardType, setCardType] = useState("");
+
+  // Card renewal month (1-12)
   const [renewalMonth, setRenewalMonth] = useState("");
+
+  // Last four digits of the card number
   const [lastFour, setLastFour] = useState("");
+
+  // Used to move between app pages
   const navigate = useNavigate();
 
+  /*
+    Handles form submission:
+      - Builds card data object
+      - Saves to local storage
+      - Sets newly added card as currently selected
+      - Redirects to home page
+  */
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
+    // Retrieve existing cards from localStorage
     const existingCards = JSON.parse(localStorage.getItem("cards") || "[]");
 
+    // Build reward object based on selected card type
     const rewards: any = {};
     const rewardsList = rewardTypesByCard[cardType] || [];
+
     rewardsList.forEach((reward: any) => {
       rewards[reward.name] = {
         type: reward.type,
@@ -48,6 +72,7 @@ export default function Form() {
       };
     });
 
+    // Final card object to store
     const cardData = {
       type: cardType,
       renewalMonth: parseInt(renewalMonth),
@@ -55,12 +80,15 @@ export default function Form() {
       rewards,
     };
 
+    // Save card to localStorage
     existingCards.push(cardData);
     localStorage.setItem("cards", JSON.stringify(existingCards));
 
+    // Set as currently selected card
     const newIndex = existingCards.length - 1;
     localStorage.setItem("currentCard", newIndex.toString());
 
+    // Return to home page
     navigate("/");
   };
 
@@ -68,6 +96,7 @@ export default function Form() {
     <div className="p-1 w-full h-full bg-stone-200 ">
       <div className="flex flex-row items-center justify-center bg-white w-full h-full gap-x-12 rounded-b-lg">
         <div className="flex items-center justify-center text-blackborder border-black h-full w-[55%] h-full w-[55%]">
+          {/* Shows card preview if a card type is selected */}
           {cardType === "gold" || cardType === "platinum" ? (
             <div className="flex justify-center items-center w-full shadow-black shadow-2xl rounded-2xl">
               {cardType === "gold" ? (
@@ -87,14 +116,15 @@ export default function Form() {
               )}
             </div>
           ) : (
+            /* Message displayed if card type not selected */
             <div className="flex items-center justify-center text-blue-900 w-full h-full text-2xl rounded-2xl  font-semibold">
               Enter card information!
             </div>
           )}
         </div>
         <div className="flex bg-blue-800 text-white border border-black rounded-md flex-col py-3 px-3">
-          {/* <div className="font-bold text-center mt-1 mb-2">Add Card Info</div> */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-y-3">
+            {/* Card type selection */}
             <div className="flex flex-row justify-between">
               <label className="flex flex-col items-center cursor-pointer">
                 <input
@@ -109,9 +139,7 @@ export default function Form() {
                   src={GoldCardSample}
                   className="w-12 h-8 bg-yellow-400 rounded-md peer-checked:ring-2 peer-checked:ring-black"
                 ></img>
-                {/* <span className="text-sm font-bold">Gold</span> */}
               </label>
-
               <label className="flex flex-col items-center cursor-pointer">
                 <input
                   type="radio"
@@ -128,6 +156,7 @@ export default function Form() {
                 {/* <span className="text-sm font-bold">Platinum</span> */}
               </label>
             </div>
+            {/* Renewal month selection */}
             <div className="flex flex-row justify-center text-blue-900 gap-x-5">
               <select
                 className="bg-stone-100 text-sm p-1 w-full font-semibold rounded-md cursor-pointer"
@@ -137,6 +166,7 @@ export default function Form() {
                 value={renewalMonth}
                 onChange={(e) => setRenewalMonth(e.target.value)}
               >
+                {/* Months as integer values (1-12) */}
                 <option value="">Select month</option>
                 <option value="1">January</option>
                 <option value="2">February</option>
@@ -152,6 +182,7 @@ export default function Form() {
                 <option value="12">December</option>
               </select>
             </div>
+            {/* Last 4 digits of card number input */}
             <div className="flex flex-row items-center justify-center font-semibold tracking-tighter text-white gap-x-2">
               <label className="text-sm">Last 4:</label>
               <input
@@ -164,20 +195,22 @@ export default function Form() {
                 required
                 value={lastFour}
                 onChange={(e) => {
-                  // Keep only digits
+                  // Remove non-numeric characters
                   let value = e.target.value.replace(/\D/g, "");
-                  // Limit to max 4 digits
+
+                  // Limit input to 4 digits
                   if (value.length > 4) value = value.slice(0, 4);
                   setLastFour(value);
                 }}
                 onBlur={() => {
-                  // Pad with leading zeros to always have 4 digits
+                  // Ensure value is always 4 digits, pad with leading zeros
                   if (lastFour.length > 0) {
                     setLastFour(lastFour.padStart(4, "0"));
                   }
                 }}
               />
             </div>
+            {/* Submission button */}
             <div className="flex flex-row justify-center">
               <button
                 type="submit"
